@@ -5,12 +5,13 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 const usersRouter = require('./routes/users')
 
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+// Conexão com o MongoDB (atualizado para remover opções depreciadas do driver)
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err))
+  .catch(err => {
+    console.error('MongoDB connection error:', err)
+    process.exit(1) // Encerra o app se não conectar
+  })
 
 app.use(cors())
 app.use(express.static('public'))
