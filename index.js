@@ -4,6 +4,7 @@ const cors = require('cors')
 require('dotenv').config()
 const mongoose = require('mongoose')
 const usersRouter = require('./routes/users')
+const fileRouter = require('./routes/file')
 
 // Conexão com o MongoDB (atualizado para remover opções depreciadas do driver)
 mongoose.connect(process.env.MONGO_URI)
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/users', usersRouter)
+app.use('/api/fileanalyse', fileRouter)
 
 const listener = app.listen(process.env.PORT || 3000, () => {
   console.log('Your app is listening on port ' + listener.address().port)
