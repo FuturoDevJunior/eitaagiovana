@@ -1,0 +1,21 @@
+{
+    "cursor.composer.collapsePaneInputBoxPills": true,
+    "cursor.composer.cmdPFilePicker2": true,
+    "cursor.composer.shouldAllowCustomModes": true,
+    "cursor.composer.shouldChimeAfterChatFinishes": true,
+    "cursor.composer.shouldQueueWhenGenerating": true,
+    "cursor.composer.shouldShowMarkdownHoverParticipantActions2": true,
+    "cursor.cpp.enablePartialAccepts": true,
+    "cursor.diffs.useCharacterLevelDiffs": true,
+    "cursor.general.enableShadowWorkspace": true,
+    "cursor.preferNotificationsSameAsChat": true,
+    "cursor.terminal.usePreviewBox": true,
+    "editor.codeActions.triggerOnFocusChange": true,
+    "editor.columnSelection": true,
+    "editor.experimental.asyncTokenizationLogging": true,
+    "editor.experimental.treeSitterTelemetry": true,
+    "editor.experimentalEditContextEnabled": true,
+    "editor.foldingImportsByDefault": true,
+    "editor.language.brackets": [],
+    "editor.smoothScrolling": true
+}

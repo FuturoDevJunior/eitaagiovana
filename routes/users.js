@@ -5,6 +5,7 @@ const Exercise = require('../models/Exercise');
 
 // POST /api/users - Cria um novo usuário
 router.post('/', async (req, res) => {
+  console.log('POST /api/users', req.body);
   try {
     const { username } = req.body;
     if (!username) return res.status(400).json({ error: 'Username is required' });
@@ -22,6 +23,7 @@ router.post('/', async (req, res) => {
 
 // GET /api/users - Lista todos os usuários
 router.get('/', async (req, res) => {
+  console.log('GET /api/users');
   try {
     const users = await User.find({}, 'username _id');
     res.json(users);
@@ -31,10 +33,11 @@ router.get('/', async (req, res) => {
 });
 
 // POST /api/users/:_id/exercises - Adiciona exercício ao usuário
-router.post('/:id/exercises', async (req, res) => {
+router.post('/:_id/exercises', async (req, res) => {
+  console.log('POST /api/users/:_id/exercises', req.params, req.body);
   try {
     const { description, duration, date } = req.body;
-    const userId = req.params.id;
+    const userId = req.params._id;
     if (!description || typeof description !== 'string' || !description.trim()) {
       return res.status(400).json({ error: 'Description is required and must be a non-empty string' });
     }
@@ -73,9 +76,10 @@ router.post('/:id/exercises', async (req, res) => {
 });
 
 // GET /api/users/:_id/logs - Log de exercícios do usuário
-router.get('/:id/logs', async (req, res) => {
+router.get('/:_id/logs', async (req, res) => {
+  console.log('GET /api/users/:_id/logs', req.params, req.query);
   try {
-    const userId = req.params.id;
+    const userId = req.params._id;
     const { from, to, limit } = req.query;
     const user = await User.findById(userId);
     if (!user) return res.status(400).json({ error: 'User not found' });
